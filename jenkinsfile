@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    tools{
+        go 'MyGO'
+    }
+    environment{
+        GO111MODULE = 'on'
+    }
+    stages{
+        stage('Compile'){
+            steps{
+                sh 'go build'
+                echo 'Compiling the project'
+            }
+        }
+        stage('test'){
+            steps{
+                echo 'testing the project'
+            }
+        }
+    } 
+}
