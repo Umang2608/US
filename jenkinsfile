@@ -6,7 +6,7 @@ pipeline{
             steps{
                 
                 echo 'Compiling the project'
-                sh 'git log -p -1'
+                sh "git log --oneline -1 ${GIT_COMMIT}"
             }
         }
         stage('test'){
