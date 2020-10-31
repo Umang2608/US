@@ -1,10 +1,11 @@
 pipeline{
     agent any
     tools{
-        go 'MyGO'
+        echo 'MyGO'
+        echo '$(GIT_COMMIT)'
     }
     environment{
-        GO111MODULE = 'on'
+        
     }
     stages{
         stage('Compile'){
