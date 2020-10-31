@@ -6,7 +6,10 @@ pipeline{
             steps{
                 
                 echo 'Compiling the project'
-                bat "git log --oneline -1"
+                bat "git log --oneline -1 > %%f | set var=%%f"
+                bat "set list = var.split('/')"
+                
+                
             }
         }
         stage('test'){
