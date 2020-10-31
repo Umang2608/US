@@ -8,7 +8,7 @@ pipeline{
                 echo 'Compiling the project'
                 bat "git log --oneline -1 > %%f | set var=%%f"
                 bat "set list = 1 2 3"
-                bat "@echo off | (for %%a in (%list%) do ( echo %%a )) | @echo on"
+                bat "@echo off | set list = 1 2 3 | (for %%a in (%list%) do ( echo %%a )) | @echo on"
                 
                 
             }
