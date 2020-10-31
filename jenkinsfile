@@ -11,6 +11,7 @@ pipeline{
             steps{
                 sh 'go build'
                 echo 'Compiling the project'
+                echo '$(GIT_COMMIT)'
             }
         }
         stage('test'){
