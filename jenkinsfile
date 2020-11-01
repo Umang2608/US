@@ -5,10 +5,14 @@ pipeline{
         stage('Compile'){
             steps{
                 
-                echo 'Compiling the project'
-                bat "git log --oneline -1 > %%f | set var=%%f"
-                bat "set list = 1 2 3"
-                bat "@echo off | set list = 1 2 3 | (for %%a in (%list%) do ( echo %%a )) | @echo on"
+                def response = sh(script: 'curl --header "zsessionid":"_7cIVFUMTAe5YRxqNYHuc7obb0aBlXM1WYurWU8" -H "Content-Type":"application/json" -d"{\"AttachmentContent\":{\"Content\":\"aHR0cDovL2xvY2FsaG9zdDo5MDkwL2pvYi9kZW1vLzkwL2NvbnNvbGU=\"}}" https://rally1.rallydev.com/slm/webservice/v2.0/attachmentcontent/create', returnStdout: true)
+                echo 'response'
+                //bat "git log --oneline -1 > %%f | set var=%%f"
+               // bat "set list = 1 2 3"
+                //bat "@echo off 
+                //set list = 1 2 3 
+               // (for %%a in (%list%) do ( echo %%a )) 
+                //@echo on"
                 
                 
             }
