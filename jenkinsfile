@@ -5,7 +5,7 @@ pipeline{
         stage('Compile'){
             steps{
                 println env.BUILD_URL
-                bat '''curl --header "zsessionid":"_7cIVFUMTAe5YRxqNYHuc7obb0aBlXM1WYurWU8" -H "Content-Type":"application/json" -d"{\\"Defect\\":{\\"Name\\":\\"Automated Defect: US2020\\",\\"Severity\\": \\"Cosmetic\\", \\"Priority\\": \\"Resolve Immediately\\", \\"State\\": \\"Open\\", \\"Description\\": \\"$env.BUILD_URL\\"}}" https://rally1.rallydev.com/slm/webservice/v2.0/Defect/create'''
+                bat '''curl --header "zsessionid":"_7cIVFUMTAe5YRxqNYHuc7obb0aBlXM1WYurWU8" -H "Content-Type":"application/json" -d"{\\"Defect\\":{\\"Name\\":\\"Automated Defect: US2020\\",\\"Severity\\": \\"Cosmetic\\", \\"Priority\\": \\"Resolve Immediately\\", \\"State\\": \\"Open\\", \\"Description\\": \\"'"$env.BUILD_URL\\"'"}}" https://rally1.rallydev.com/slm/webservice/v2.0/Defect/create'''
                // def response = bat "(script: 'curl --header "zsessionid":"_7cIVFUMTAe5YRxqNYHuc7obb0aBlXM1WYurWU8" -H "Content-Type":"application/json" -d"{\"AttachmentContent\":{\\"Content\\":\\"aHR0cDovL2xvY2FsaG9zdDo5MDkwL2pvYi9kZW1vLzkwL2NvbnNvbGU=\\"}}" https://rally1.rallydev.com/slm/webservice/v2.0/attachmentcontent/create', returnStdout: true)"
                 //echo 'response'
                 bat "git log --oneline -1 > %%f | set var=%%f"
