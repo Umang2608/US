@@ -4,7 +4,9 @@ pipeline{
     stages{
         stage('Compile'){
             steps{
-                bat 'Jenkins.getInstance().getComputer('').getHostName()'
+                def getJenkinsMaster() {
+                            return env.BUILD_URL.split('/')[2].split(':')[0]
+                }
                // def response = bat "(script: 'curl --header "zsessionid":"_7cIVFUMTAe5YRxqNYHuc7obb0aBlXM1WYurWU8" -H "Content-Type":"application/json" -d"{\"AttachmentContent\":{\\"Content\\":\\"aHR0cDovL2xvY2FsaG9zdDo5MDkwL2pvYi9kZW1vLzkwL2NvbnNvbGU=\\"}}" https://rally1.rallydev.com/slm/webservice/v2.0/attachmentcontent/create', returnStdout: true)"
                 //echo 'response'
                 bat "git log --oneline -1 > %%f | set var=%%f"
