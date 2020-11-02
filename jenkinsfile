@@ -9,7 +9,7 @@ pipeline{
                 //echo 'response'
                 bat "git log --oneline -1 > %%f | set var=%%f"
                 //bat "set list = My name is Helo"
-                bat'FOR /f "tokens=2 delims= " %%a IN var DO ECHO %%a'
+                bat'FOR /f "tokens=2 delims= " %%a IN (%%f) DO ECHO %%a'
                 //bat "@echo off 
                 //set list = 1 2 3 
                 //(for %%a in (%list%) do ( echo %%a )) 
