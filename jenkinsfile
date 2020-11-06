@@ -13,8 +13,8 @@ pipeline{
                 //bat "set list = My name is Helo"
                 //bat'FOR /f "tokens=2 delims= " %%a IN (%%f) DO ECHO %%a'
                 //bat "@echo off 
-                //set list = 1 2 3 
-                bat 'EVEN_I_AM_INVALID_2_FAIL_THIS_BUILD!' 
+                break
+                //bat 'EVEN_I_AM_INVALID_2_FAIL_THIS_BUILD!' 
                
                 
                 
